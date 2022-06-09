@@ -4,7 +4,8 @@ import {
     HomeIcon,
     AnnotationIcon,
     BookmarkIcon,
-    CubeIcon
+    CubeIcon,
+    UserIcon
  } from '@heroicons/react/solid'
 import SidebarRow from './SidebarRow'
 
@@ -12,13 +13,14 @@ import SidebarRow from './SidebarRow'
 
 function Sidebar() {
   return (
-    <div>
-        
-        <img className='h-6 w-30' src='https://pasaporte.usm.cl/id/img/usmLogo.png' alt=''></img>
+      
+    <div className='flex flex-col'>        
+        <img className='h-12 w-14' src='https://www.ingemas.cl/imagenes/cliente_usm.png' alt=''></img>
         <SidebarRow Icon={HomeIcon} title="Inicio"></SidebarRow>
         <SidebarRow Icon={AdjustmentsIcon} title="Ajustes"></SidebarRow>
         <SidebarRow Icon={AnnotationIcon} title="Mensajes"></SidebarRow>
         <SidebarRow Icon={BookmarkIcon} title="Guardados"></SidebarRow>
+        <SidebarRow Icon={UserIcon} title="Log-In"></SidebarRow>
         <SidebarRow Icon={CubeIcon} title="Test"></SidebarRow>
 
 
