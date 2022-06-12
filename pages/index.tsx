@@ -13,7 +13,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className='bg-black min-h-screen'>
+      <main className='bg-black min-h-screen flex mx-auto'>
 
         {/* Mi Sidebar */}
 
@@ -21,7 +21,7 @@ const Home: NextPage = () => {
 
         {/* Mi Feed */}
 
-        {/** <Feed></Feed>  */}
+        <Feed></Feed>
 
         {/* Mi Wigdets */}
 

@@ -6,7 +6,8 @@ import {
     BookmarkIcon,
     CubeIcon,
     UserIcon,
-    DotsHorizontalIcon
+    DotsHorizontalIcon,
+    BellIcon
  } from '@heroicons/react/solid'
 import SidebarRow from './SidebarRow'
 import Image from 'next/image'
@@ -30,11 +31,11 @@ function Sidebar() {
           <div className='hidden xl:inline leading-5'>
             <h3 className="font-extrabold">User12345</h3>
             <p className="font-bold">@User12345</p>
-            <div className='group'>
-            <p className="font-extrabold">Tus Noticias:</p>
-            <p className="font-monospace">Escritas=</p>
-            <p className="font-monospace">Validadas=</p>
-            <p className="font-monospace">In-Validadas=</p>
+            <div className="group">
+            <p className="font-extrabold">Noticias:</p>
+            <p className="font-monospace">Escritas = TEST</p>
+            <p className="font-monospace">Validadas = TEST</p>
+            <p className="font-monospace">In-validas = TEST</p>
             </div>
           </div>
           <DotsHorizontalIcon className='h-4 hidden xl:inline ml-10'></DotsHorizontalIcon>
@@ -43,9 +44,9 @@ function Sidebar() {
 
         <SidebarRow Icon={HomeIcon} title="Inicio" active={true}></SidebarRow>
         <SidebarRow Icon={AdjustmentsIcon} title="Ajustes" active={false}></SidebarRow>
-        <SidebarRow Icon={AnnotationIcon} title="Mensajes" active={false}></SidebarRow>
+        <SidebarRow Icon={BellIcon} title="Notificaciones" active={false}></SidebarRow>
         <SidebarRow Icon={BookmarkIcon} title="Guardados" active={false}></SidebarRow>
-        <SidebarRow Icon={UserIcon} title="Log-In" active={false}></SidebarRow>
+        <SidebarRow Icon={UserIcon} title="Logout" active={false}></SidebarRow>
         <SidebarRow Icon={CubeIcon} title="Test" active={false}></SidebarRow>
         </div>
     
