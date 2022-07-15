@@ -1,8 +1,31 @@
 import { RefreshIcon } from '@heroicons/react/solid'
-import React from 'react'
+import { onSnapshot, query, collection, orderBy } from 'firebase/firestore';
+import React, { useEffect, useState } from 'react'
+import { db } from '../firebase';
 import InputFeed from './InputFeed'
+import { useSession } from "next-auth/react";
+import {Post} from './Post';
+
 
 function Feed() {
+
+  const { data: session } = useSession();
+  const [posts,setPosts] = useState([]);
+
+  useEffect(
+    () =>
+      onSnapshot(
+        query(collection(db, "posts"), orderBy("timestamp", "desc")),
+        (snapshot) => {
+          setPosts(snapshot.docs as any);
+        }
+      ),
+    [db]
+  );
+
+  console.log(posts)
+
+
   return (
     <div className="text-white flex-1 border-l border-r
      border-white max-w-screen-2xl sm:ml-[73px] xl:ml-[370px]
@@ -15,7 +38,14 @@ function Feed() {
          text-noticiasTelBlue transition-all duration-500 ease-out hover:rotate-180 active:scale-125'></RefreshIcon>
          </div>
        </div>
-       <InputFeed></InputFeed>       
+       <InputFeed></InputFeed>
+
+       <div className="pb-70">
+        {posts.map((post) => (
+          <Post key={post.id} id={post.id} post={post.data()} />
+        ))}
+      </div>
+
     </div>
     
   )

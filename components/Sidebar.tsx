@@ -11,9 +11,14 @@ import {
  } from '@heroicons/react/solid'
 import SidebarRow from './SidebarRow'
 import Image from 'next/image'
+import { useSession } from "next-auth/react";
+import { signOut } from "next-auth/react";
+
 
 
 function Sidebar() {
+  const { data: session } = useSession();
+
   return (
       
     <div className='hidden sm:flex flex-col items-center xl:items-start xl:w-[330px] p-2 fixed h-full'>        
@@ -26,11 +31,11 @@ function Sidebar() {
 
                 {/** Boton de Perfil */}
           <div className="text-white flex flex-center justify-center items-center hoverAnimation xl:mt-4 xl:mr-auto ">
-          <img src="https://png.pngtree.com/element_our/png/20181206/users-vector-icon-png_260862.jpg" 
-          className=' flex flex-center h-8 w-8 rounded-full xl:mr-2'  alt=""></img>
+          <img src={session?.user?.image} referrerPolicy="no-referrer"
+          className=' flex flex-center h-8 w-8 rounded-full xl:mr-2 '  alt=""></img>
           <div className='hidden xl:inline leading-5'>
-            <h3 className="font-extrabold">User12345</h3>
-            <p className="font-bold">@User12345</p>
+            <h3 className="font-extrabold">@{session?.user?.tag}</h3>
+            <p className="font-bold">{session?.user?.name}</p>
             <div className="group">
             <p className="font-extrabold">Noticias:</p>
             <p className="font-monospace">Escritas = TEST</p>
